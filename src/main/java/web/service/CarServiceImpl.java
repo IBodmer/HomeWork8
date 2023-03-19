@@ -13,19 +13,19 @@ public class CarServiceImpl implements CarService {
 
     static {
         carList = new ArrayList<>();
-        carList.add(new Car(1L, "lada1", 1992));
-        carList.add(new Car(2L, "lada2", 1992));
-        carList.add(new Car(3L, "lada3", 1992));
-        carList.add(new Car(4L, "lada4", 1992));
-        carList.add(new Car(5L, "lada5", 1992));
-        carList.add(new Car(6L, "lada6", 1992));
-        carList.add(new Car(7L, "lada7", 1992));
-        carList.add(new Car(8L, "lada8", 1992));
-        carList.add(new Car(9L, "lada9", 1992));
-        carList.add(new Car(10L, "lada10", 1992));
-        carList.add(new Car(11L, "lada11", 1992));
-        carList.add(new Car(12L, "lada12", 1992));
-        carList.add(new Car(13L, "lada13", 1992));
+        carList.add(new Car( "lada1", 1992));
+        carList.add(new Car("lada2", 1992));
+        carList.add(new Car("lada3", 1992));
+        carList.add(new Car("lada4", 1992));
+        carList.add(new Car("lada5", 1992));
+        carList.add(new Car("lada6", 1992));
+        carList.add(new Car("lada7", 1992));
+        carList.add(new Car("lada8", 1992));
+        carList.add(new Car("lada9", 1992));
+        carList.add(new Car("lada10", 1992));
+        carList.add(new Car("lada11", 1992));
+        carList.add(new Car("lada12", 1992));
+        carList.add(new Car("lada13", 1992));
     }
 
     public List<Car> getMyList(Integer count) {

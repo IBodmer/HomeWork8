@@ -1,6 +1,14 @@
 package web.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String model;
     private Integer year;
@@ -8,8 +16,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(Long id, String model, Integer year) {
-        this.id = id;
+    public Car(String model, Integer year) {
         this.model = model;
         this.year = year;
     }
