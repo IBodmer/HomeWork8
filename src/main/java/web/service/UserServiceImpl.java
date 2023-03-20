@@ -14,19 +14,22 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserServiceImpl {
+public class UserServiceImpl implements UserService {
 
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Override
     public void save(User user) {
         entityManager.persist(user);
     }
 
+    @Override
     public User findById(Long id) {
         return entityManager.find(User.class, id);
     }
 
+    @Override
     public List<User> findAll() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<User> cq = cb.createQuery(User.class);
@@ -36,6 +39,7 @@ public class UserServiceImpl {
         return query.getResultList();
     }
 
+    @Override
     public void update(Long id, User user) {
         User user1 = entityManager.find(User.class, id);
         user1.setId(user.getId());
@@ -46,6 +50,7 @@ public class UserServiceImpl {
         entityManager.merge(user1);
     }
 
+    @Override
     public void delete(User user) {
         entityManager.remove(user);
     }
