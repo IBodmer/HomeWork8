@@ -17,7 +17,7 @@ public class UserDaoImpl implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional
+
     @Override
     public void save(User user) {
         entityManager.persist(user);
@@ -30,15 +30,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findAll() {
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<User> cq = cb.createQuery(User.class);
-        Root<User> root = cq.from(User.class);
-        cq.select(root);
-        TypedQuery<User> query = entityManager.createQuery(cq);
-        return query.getResultList();
+        return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
     }
 
-    @Transactional
+
     @Override
     public void update(Long id, User user) {
         User user1 = entityManager.find(User.class, id);
@@ -50,7 +45,7 @@ public class UserDaoImpl implements UserDao {
         entityManager.merge(user1);
     }
 
-    @Transactional
+
     @Override
     public void delete(User user) {
         entityManager.remove(user);
